@@ -1,7 +1,6 @@
 package controllers;
 
 import org.glassfish.jersey.media.multipart.FormDataParam;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import server.Main;
 
@@ -11,33 +10,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.UUID;
 
-@Path("Players/")
+
+@Path("users/")
 @Consumes(MediaType.MULTIPART_FORM_DATA)
 @Produces(MediaType.APPLICATION_JSON)
 
-public class Players {
-    @GET
-    @Path("list")
-    public String PlayersList() {
-        System.out.println("Invoked Players.PlayersList()");
-        JSONArray response = new JSONArray();
-        try {
-            PreparedStatement ps = Main.db.prepareStatement("SELECT PlayerID, PlayerName FROM Players");
-            ResultSet results = ps.executeQuery();
-            while (results.next()==true) {
-                JSONObject row = new JSONObject();
-                row.put("PlayerID", results.getInt(1));
-                row.put("PlayerName", results.getString(2));
-                response.add(row);
-            }
-            return response.toString();
-        } catch (Exception exception) {
-            System.out.println("Database error: " + exception.getMessage());
-            return "{\"Error\": \"Unable to list items.  Error code xx.\"}";
-        }
 
 
-    }
+public class Users {
+
     @POST
     @Path("login")
     public String UsersLogin(@FormDataParam("UserName") String UserName, @FormDataParam("PassWord") String PassWord) {
@@ -71,5 +52,29 @@ public class Players {
     }
 
 
-}
+    @POST
+    @Path("logout")
+    public static String logout(@CookieParam("Token") String Token){
+        try{
+            System.out.println("users/logout "+ Token);
+            PreparedStatement ps = Main.db.prepareStatement("SELECT UserID FROM Users WHERE Token=?");
+            ps.setString(1, Token);
+            ResultSet logoutResults = ps.executeQuery();
+            if (logoutResults.next()){
+                int UserID = logoutResults.getInt(1);
+                //Set the token to null to indicate that the user is not logged in
+                PreparedStatement ps1 = Main.db.prepareStatement("UPDATE Users SET Token = NULL WHERE UserID = ?");
+                ps1.setInt(1, UserID);
+                ps1.executeUpdate();
+                return "{\"status\": \"OK\"}";
+            } else {
+                return "{\"error\": \"Invalid token!\"}";
 
+            }
+        } catch (Exception ex) {
+            System.out.println("Database error during /users/logout: " + ex.getMessage());
+            return "{\"error\": \"Server side error!\"}";
+        }
+    }
+
+}
