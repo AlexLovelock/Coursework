@@ -1,90 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
+<ul lang="en">
 <head>
     <meta charset="UTF-8">
+    <style type="text/css" media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        div#banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(13, 61, 83, 0.68);
+            width: 100%;
+        }
+        div#banner-content {
+            width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            font-size: 50px;
+        }
+        div#main-content {
+            padding-top: 150px;
+        }
+    </style>
 
 </head>
 
-<h1> Project Title</h1>
-<Style>
-    body {
-        color:white;
-    }
 
-    h1 {
-        font-family:"Trebuchet MS";
-        font-weight: bold;
-        font-size: 40px;
-    }
 </Style>
 
-<div id="Upcoming"><a href="Upcoming.html"> Upcoming Games! </a></div>
-<div id="Replays"><a href="Replays.html"> Replays! </a></div>
-<div id="Transfers"><a href="Transfers.html"> Transfers! </a></div>
-<div id="Profiles"><a href="Profiles.html"> Profiles! </a></div>
-<div id="TeamStats"><a href="TeamStats.html"> Team Stats! </a></div>
 
+</Style>
+<div id="banner">
+    <div id="banner-content">
+        Project Title
+    </div>
+</div>
+<div id="main-content">
+
+    <p><div id="Upcoming"><a href="Upcoming.html"> Upcoming Games </a></div>
+    <div id="Replays"><a href="Replays.html"> Replays </a></div>
+    <div id="Transfers"><a href="Transfers.html"> Transfers </a></div>
+    <div id="Profiles"><a href="Profiles.html"> Profiles </a></div>
+    <div id="TeamStats"><a href="TeamStats.html"> Team Stats </a></div>
+
+    <Style>
+        body{
+            text-align: center;
+            animation: fadeInAnimation ease 3s;
+            animation-iteration-count: 1;
+            animation-fill-mode: backwards;
+        }
+
+        @keyframes fadeInAnimation {
+            0% {opacity: 0;
+            }
+            100% {opactiy: 100;
+            }
+        }
+
+        #Upcoming, #Replays, #Transfers, #Profiles, #TeamStats {
+
+
+            margin-left:40px;
+            width: 6em;
+            display: inline-block;
+            border: 2px solid green;
+            background: #ffe;
+            border-radius: 5px;
+        }
+
+
+        a {
+            display: block;
+            width: 100%;
+            line-height: 2em;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            color: red;
+            background: #eff;
+        }
+    </style>
+
+</div>
 <Style>
+
+main{
+    display:flex;
+    flex-direction:row;
+    }
+    .round{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:200px;
+    list-style:none;
+    padding:0;
+    }
+
+
+.round .spacer{ flex-grow:1; }
+.round .spacer:first-child,
+.round .spacer:last-child{ flex-grow:.5; }
+
+.round .game-spacer{
+    flex-grow:1;
+    }
+
+
     body{
-        animation: fadeInAnimation ease 3s;
-        animation-iteration-count: 1;
-        animation-fill-mode: backwards;
+        font-family:sans-serif;
+    font-size:small;
+    padding:10px;
+    line-height:1.4em;
     }
 
-    @keyframes fadeInAnimation {
-        0% {opacity: 0;
-        }
-        100% {opactiy: 100;
-        }
+    li.game{
+    padding-left:20px;
     }
 
-    #Upcoming, #Replays, #Transfers, #Profiles, #TeamStats {
-        margin-left: 40px;
-        display: inline-block;
-        width: 6em;
-        border: 2px solid green;
-        background: #fffe;
-        border-radius: 5px;
-
-    }
-    * {
-        display: block;
-        width:100%;
-        line-height:2em;
-        text-align:center;
-        text-decoration:none;
-        border-radius: 5px;
+    li.game.winner{
+    font-weight:900;
     }
 
-    a:hover {
-        color: red;
-        background: #eff;
+    li.game span{
+    float:right;
+    margin-right:5px;
+    }
+
+    li.game-top{ border-bottom:1px solid #aaa; }
+
+    li.game-spacer{
+    border-right:1px solid #aaa;
+    min-height:40px;
+    }
+
+li.game-bottom{
+border-top:1px solid #aaa;
+
+
+</style>
+
+<style>
+    h1 {
+     padding-top: 60px;
     }
 
 
+</style>
 
 
+<h1>Rocket League Championship Series - Season 9</h1>
 
-</Style>
-<body>
+<ul id="tournament">
+    <ul class="round round-1">
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner"> Team 1<span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 2<span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner">Team 3 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 4 <span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top ">Team 5 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner"> Team 6 <span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner"> Team 7 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 8 <span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner"> Team 9 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 10 <span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner"> Team 11 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Team 12 <span>0</span></li>
 
-<Style>
-    body {background-color: #00134d;}
-</Style>
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner">Team 13 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 14 <span>0</span></li>
 
+        <li class="spacer">&nbsp;</li>
 
+        <li class="game game-top winner"> Team 15 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 16 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+
+    <ul class="round round-2">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner"> Team 1 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Team 3 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner"> Team 6 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>;
+        <li class="game game-bottom ">Team 7 <span>0</span></li>
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top "> Team 9 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner"> Team 11 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top "> Team 13 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner"> Team 15 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+    <ul class="round round-3">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner">Team 1 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 6 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top ">Team 11 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom winner"> Team 15 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+    <ul class="round round-4">
+        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top winner"> Team 1 <span>0</span></li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom "> Team 15 <span>0</span></li>
+
+        <li class="spacer">&nbsp;</li>
+    </ul>
+
+</main>
 </body>
 </html>
