@@ -1,0 +1,23 @@
+--
+-- File generated with SQLiteStudio v3.2.1 on Tue Dec 15 11:21:28 2020
+--
+-- Text encoding used: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: Players
+CREATE TABLE Players (PlayerID INTEGER, PlayerName STRING);
+
+-- Table: PlayLink
+CREATE TABLE PlayLink (TeamID, TeamName, GameID);
+
+-- Table: Teams
+CREATE TABLE Teams (TeamID INTEGER, TeamName STRING);
+
+-- Table: users
+CREATE TABLE users (Token STRING, Username STRING, Password STRING);
+INSERT INTO users (Token, Username, Password) VALUES (NULL, 11, 11);
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
